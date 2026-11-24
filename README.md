@@ -49,7 +49,7 @@ The chip bar has **Identify** and one chip per club. A mapped club shows a check
 ### Map a club
 
 1. Press the club's chip.
-2. Shine a light on its tag and hold for 3 seconds. A flashlight works.
+2. Shine a light on its tag and hold for 3 seconds. We recommend a flashlight, since indoor light can be too dim to wake a tag.
 3. The app reads the wake tone and the resting frame.
 4. Tap the club head. The tag answers with its after hit signal.
 5. Take the light away. When the tag goes quiet the app saves the club.
@@ -68,7 +68,7 @@ Everything stays on your computer, in this folder. Git ignores all three.
 
 | File | What it holds |
 |---|---|
-| `codebook.json` | The clubs you mapped. Until your first save the app shows `codebook.example.json`, the 12 clubs mapped on our set |
+| `codebook.json` | The clubs you mapped. Until your first save the app shows `codebook.example.json`, the clubs mapped on our set |
 | `recordings/` | Captures, one WAV and one JSON file each |
 | `identifications.jsonl` | One line per tag the app identified |
 
@@ -156,7 +156,7 @@ python3 -m unittest discover -s test -p 'test_*.py'
 
 ```
 server.py              the local server: static files, captures, codebook
-codebook.example.json  the 12 clubs mapped on our set
+codebook.example.json  the clubs mapped on our set
 web/                   the app: plain ES modules, served as they are
 tools/                 command line scripts
 test/                  tests and recordings
