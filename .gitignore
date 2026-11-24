@@ -1,0 +1,9 @@
+# written by the server while you use the app
+recordings/
+codebook.json
+.codebook-*.tmp
+identifications.jsonl
+
+__pycache__/
+.DS_Store
+node_modules/

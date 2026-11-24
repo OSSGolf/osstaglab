@@ -1,0 +1,13 @@
+{
+  "name": "osstaglab",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Web app that listens to ultrasonic golf club tags, decodes their signals and identifies the club.",
+  "license": "MIT",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "python3 server.py",
+    "test": "node --test test/*.test.mjs && python3 -m unittest discover -s test -p 'test_*.py'"
+  }
+}

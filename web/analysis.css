@@ -1,0 +1,168 @@
+/* Capture analysis and similarity panels. Every rule is scoped to .an-* classes.
+   Colours and fonts come from the page's :root custom properties. */
+
+.an-analysis,
+.an-similarity {
+  display: grid;
+  gap: var(--gap);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: 14px;
+}
+
+.an-meta,
+.an-readout,
+.an-sequence,
+.an-status,
+.an-summary,
+.an-matrix {
+  font-family: var(--font-tight);
+  font-variant-numeric: tabular-nums;
+}
+
+.an-meta,
+.an-note,
+.an-status,
+.an-explain,
+.an-summary,
+.an-empty,
+.an-readout {
+  margin: 0;
+}
+
+.an-meta,
+.an-note,
+.an-empty,
+.an-readout,
+.an-status,
+.an-explain,
+.an-copy-status {
+  color: var(--ink-soft);
+}
+
+.an-body {
+  display: grid;
+  gap: var(--gap);
+}
+
+.an-body[hidden] {
+  display: none;
+}
+
+.an-controls,
+.an-selection-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.an-field {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.an-select,
+.an-button {
+  font: inherit;
+  font-size: 13px;
+  color: var(--ink);
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 3px 8px;
+}
+
+.an-button {
+  cursor: pointer;
+}
+
+.an-button[aria-pressed="true"] {
+  border-color: var(--fairway);
+}
+
+.an-button:disabled {
+  color: var(--ink-soft);
+  cursor: default;
+}
+
+.an-analysis :focus-visible,
+.an-similarity :focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.an-stack {
+  position: relative;
+  background: var(--scope);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: crosshair;
+  touch-action: none;
+  user-select: none;
+}
+
+.an-stack canvas {
+  display: block;
+  width: 100%;
+}
+
+.an-findings {
+  margin: 0;
+  padding-left: 1.25em;
+  display: grid;
+  gap: 4px;
+}
+
+.an-sequence {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.an-matrix-wrap {
+  overflow-x: auto;
+  border-top: 1px solid var(--rule);
+  padding-top: var(--gap);
+}
+
+.an-matrix {
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.an-matrix th {
+  font-weight: 500;
+  text-align: left;
+  vertical-align: bottom;
+  color: var(--ink-soft);
+  padding: 4px 6px;
+  white-space: nowrap;
+}
+
+.an-matrix tbody th {
+  text-align: right;
+}
+
+.an-cell {
+  font: inherit;
+  min-width: 3.6em;
+  height: 2.2em;
+  padding: 0 4px;
+  border: 1px solid var(--rule);
+  cursor: pointer;
+}
+
+.an-cell.an-dim,
+.an-matrix th.an-dim {
+  color: var(--ink-soft);
+  background: transparent;
+  cursor: default;
+  font-style: italic;
+}
+
+#similarity table {
+  width: auto;
+}

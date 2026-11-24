@@ -1,0 +1,688 @@
+{
+  "clubs": {
+    "driver": {
+      "observations": [
+        {
+          "at": "2026-11-20T18:49:34.316Z",
+          "device": null,
+          "frames": 27,
+          "kind": "frames",
+          "repeats": 24,
+          "restHz": 17855.500005364538,
+          "symbols": [
+            -2,
+            3,
+            -2,
+            -3,
+            -4,
+            -3
+          ]
+        },
+        {
+          "at": "2026-11-20T18:49:34.316Z",
+          "device": null,
+          "hz": 18750.852828385494,
+          "kind": "tone"
+        },
+        {
+          "at": "2026-11-20T18:49:34.316Z",
+          "device": null,
+          "hops": 8,
+          "kind": "hop",
+          "offsetHz": 399.4684996470951,
+          "periodMs": 102,
+          "restHz": 18853.977323619773
+        },
+        {
+          "at": "2026-11-20T22:51:50.040Z",
+          "device": null,
+          "frames": 18,
+          "kind": "frames",
+          "repeats": 14,
+          "restHz": 17867.7430993052,
+          "symbols": [
+            -2,
+            3,
+            -2,
+            -3,
+            -4,
+            -3
+          ]
+        },
+        {
+          "at": "2026-11-20T22:51:50.040Z",
+          "device": null,
+          "hz": 18759.642448360515,
+          "kind": "tone"
+        },
+        {
+          "at": "2026-11-20T22:51:50.040Z",
+          "device": null,
+          "hops": 43,
+          "kind": "hop",
+          "offsetHz": 408.5838059050184,
+          "periodMs": 101,
+          "restHz": 18867.773496863418
+        }
+      ]
+    },
+    "iron4": {
+      "observations": [
+        {
+          "at": "2026-11-20T18:47:24.485Z",
+          "device": null,
+          "frames": 29,
+          "kind": "frames",
+          "repeats": 29,
+          "restHz": 17966.324660372768,
+          "symbols": [
+            1,
+            2,
+            3,
+            -4,
+            -4,
+            -3
+          ]
+        },
+        {
+          "at": "2026-11-20T18:47:24.485Z",
+          "device": null,
+          "hz": 18864.65327621849,
+          "kind": "tone"
+        },
+        {
+          "at": "2026-11-20T18:47:24.485Z",
+          "device": null,
+          "hops": 36,
+          "kind": "hop",
+          "offsetHz": 508.2151911727451,
+          "periodMs": 121,
+          "restHz": 18962.50312476454
+        }
+      ]
+    },
+    "iron6": {
+      "observations": [
+        {
+          "at": "2026-11-20T18:46:44.063Z",
+          "device": null,
+          "frames": 19,
+          "kind": "frames",
+          "repeats": 18,
+          "restHz": 17925.206279854123,
+          "symbols": [
+            -3,
+            2,
+            2,
+            2,
+            3,
+            -3
+          ]
+        },
+        {
+          "at": "2026-11-20T18:46:44.063Z",
+          "device": null,
+          "hz": 18818.367409168055,
+          "kind": "tone"
+        },
+        {
+          "at": "2026-11-20T18:46:44.063Z",
+          "device": null,
+          "hops": 65,
+          "kind": "hop",
+          "offsetHz": 506.66918182301924,
+          "periodMs": 81,
+          "restHz": 18922.410235068895
+        }
+      ]
+    },
+    "iron7": {
+      "observations": [
+        {
+          "at": "2026-11-20T18:45:54.814Z",
+          "device": null,
+          "frames": 19,
+          "kind": "frames",
+          "repeats": 19,
+          "restHz": 17783.5236545392,
+          "symbols": [
+            -4,
+            -2,
+            2,
+            3,
+            -4,
+            -3
+          ]
+        },
+        {
+          "at": "2026-11-20T18:45:54.814Z",
+          "device": null,
+          "hz": 18675.126408838973,
+          "kind": "tone"
+        },
+        {
+          "at": "2026-11-20T18:45:54.814Z",
+          "device": null,
+          "hops": 53,
+          "kind": "hop",
+          "offsetHz": 405.79147881844074,
+          "periodMs": 61,
+          "restHz": 18775.1293608648
+        }
+      ]
+    },
+    "iron8": {
+      "observations": [
+        {
+          "at": "2026-11-20T18:44:41.062Z",
+          "device": null,
+          "frames": 18,
+          "kind": "frames",
+          "repeats": 18,
+          "restHz": 17873.440535880956,
+          "symbols": [
+            3,
+            4,
+            -2,
+            3,
+            4,
+            -3
+          ]
+        },
+        {
+          "at": "2026-11-20T18:44:41.062Z",
+          "device": null,
+          "hz": 18763.46047564317,
+          "kind": "tone"
+        },
+        {
+          "at": "2026-11-20T18:44:49.815Z",
+          "device": null,
+          "frames": 17,
+          "kind": "frames",
+          "repeats": 17,
+          "restHz": 17879.625955545715,
+          "symbols": [
+            3,
+            4,
+            -2,
+            3,
+            4,
+            -3
+          ]
+        },
+        {
+          "at": "2026-11-20T18:44:49.815Z",
+          "device": null,
+          "hz": 18763.601558487062,
+          "kind": "tone"
+        },
+        {
+          "at": "2026-11-20T18:44:49.815Z",
+          "device": null,
+          "hops": 28,
+          "kind": "hop",
+          "offsetHz": 408.1250172537166,
+          "periodMs": 121,
+          "restHz": 18874.56678895307
+        },
+        {
+          "at": "2026-11-20T18:45:07.063Z",
+          "device": null,
+          "frames": 18,
+          "kind": "frames",
+          "repeats": 18,
+          "restHz": 17879.293486180373,
+          "symbols": [
+            3,
+            4,
+            -2,
+            3,
+            4,
+            -3
+          ]
+        },
+        {
+          "at": "2026-11-20T18:45:07.063Z",
+          "device": null,
+          "hz": 18769.79625808134,
+          "kind": "tone"
+        },
+        {
+          "at": "2026-11-20T18:45:07.063Z",
+          "device": null,
+          "hops": 15,
+          "kind": "hop",
+          "offsetHz": 405.929181995416,
+          "periodMs": 121,
+          "restHz": 18876.215198198013
+        }
+      ]
+    },
+    "iron9": {
+      "observations": [
+        {
+          "at": "2026-11-20T18:43:53.854Z",
+          "device": null,
+          "frames": 29,
+          "kind": "frames",
+          "repeats": 29,
+          "restHz": 17911.57231830452,
+          "symbols": [
+            4,
+            -1,
+            -2,
+            1,
+            -4,
+            -3
+          ]
+        },
+        {
+          "at": "2026-11-20T18:43:53.854Z",
+          "device": null,
+          "hz": 18803.695434686048,
+          "kind": "tone"
+        },
+        {
+          "at": "2026-11-20T18:43:53.854Z",
+          "device": null,
+          "hops": 76,
+          "kind": "hop",
+          "offsetHz": 408.77821057960955,
+          "periodMs": 61,
+          "restHz": 18903.761195603645
+        }
+      ]
+    },
+    "putter": {
+      "observations": [
+        {
+          "at": "2026-11-20T18:36:50.064Z",
+          "device": null,
+          "frames": 30,
+          "kind": "frames",
+          "repeats": 26,
+          "restHz": 17913.62089608093,
+          "symbols": [
+            -4,
+            -2,
+            -1,
+            -3,
+            -1,
+            1
+          ]
+        },
+        {
+          "at": "2026-11-20T18:37:18.565Z",
+          "device": null,
+          "frames": 26,
+          "kind": "frames",
+          "repeats": 20,
+          "restHz": 17922.00455484465,
+          "symbols": [
+            -4,
+            -2,
+            -1,
+            -3,
+            -1,
+            1
+          ]
+        },
+        {
+          "at": "2026-11-20T18:37:18.565Z",
+          "device": null,
+          "frames": 11,
+          "kind": "frames",
+          "repeats": 11,
+          "restHz": 17920.642363311777,
+          "role": "hit",
+          "symbols": [
+            1,
+            3,
+            4,
+            2,
+            4,
+            -1
+          ]
+        },
+        {
+          "at": "2026-11-20T18:37:21.811Z",
+          "device": null,
+          "frames": 8,
+          "kind": "frames",
+          "repeats": 6,
+          "restHz": 17924.429298665917,
+          "symbols": [
+            -4,
+            -2,
+            -1,
+            -3,
+            -1,
+            1
+          ]
+        },
+        {
+          "at": "2026-11-20T18:37:47.686Z",
+          "device": null,
+          "frames": 28,
+          "kind": "frames",
+          "repeats": 26,
+          "restHz": 17925.225370199172,
+          "symbols": [
+            -4,
+            -2,
+            -1,
+            -3,
+            -1,
+            1
+          ]
+        },
+        {
+          "at": "2026-11-20T18:37:47.686Z",
+          "device": null,
+          "frames": 12,
+          "kind": "frames",
+          "repeats": 6,
+          "restHz": 17920.824553650687,
+          "role": "hit",
+          "symbols": [
+            1,
+            3,
+            4,
+            2,
+            4,
+            -1
+          ]
+        },
+        {
+          "at": "2026-11-20T22:50:28.788Z",
+          "device": null,
+          "frames": 8,
+          "kind": "frames",
+          "repeats": 8,
+          "restHz": 17914.520272834146,
+          "symbols": [
+            -4,
+            -2,
+            -1,
+            -3,
+            -1,
+            1
+          ]
+        },
+        {
+          "at": "2026-11-20T22:50:41.541Z",
+          "device": null,
+          "frames": 14,
+          "kind": "frames",
+          "repeats": 11,
+          "restHz": 17919.45545319454,
+          "symbols": [
+            -4,
+            -2,
+            -1,
+            -3,
+            -1,
+            1
+          ]
+        },
+        {
+          "at": "2026-11-20T22:50:41.541Z",
+          "device": null,
+          "frames": 12,
+          "kind": "frames",
+          "repeats": 11,
+          "restHz": 17917.251446412934,
+          "role": "hit",
+          "symbols": [
+            1,
+            3,
+            4,
+            2,
+            4,
+            -1
+          ]
+        },
+        {
+          "at": "2026-11-20T22:50:41.541Z",
+          "device": null,
+          "hz": 19807.950307768784,
+          "kind": "tone"
+        }
+      ]
+    },
+    "wedge52": {
+      "observations": [
+        {
+          "at": "2026-11-20T18:41:21.314Z",
+          "device": null,
+          "frames": 30,
+          "kind": "frames",
+          "repeats": 28,
+          "restHz": 17938.217849455774,
+          "symbols": [
+            4,
+            -4,
+            -3,
+            -4,
+            4,
+            -3
+          ]
+        },
+        {
+          "at": "2026-11-20T18:41:21.314Z",
+          "device": null,
+          "hz": 18833.725073656722,
+          "kind": "tone"
+        },
+        {
+          "at": "2026-11-20T18:41:21.314Z",
+          "device": null,
+          "hops": 43,
+          "kind": "hop",
+          "offsetHz": 203.30267578171333,
+          "periodMs": 121,
+          "restHz": 18940.68798811781
+        }
+      ]
+    },
+    "wedge56": {
+      "observations": [
+        {
+          "at": "2026-11-20T18:40:10.314Z",
+          "device": null,
+          "frames": 30,
+          "kind": "frames",
+          "repeats": 27,
+          "restHz": 17830.004073105658,
+          "symbols": [
+            1,
+            3,
+            4,
+            -3,
+            4,
+            -3
+          ]
+        },
+        {
+          "at": "2026-11-20T18:40:10.314Z",
+          "device": null,
+          "hz": 18718.674619680845,
+          "kind": "tone"
+        },
+        {
+          "at": "2026-11-20T18:40:10.314Z",
+          "device": null,
+          "hops": 43,
+          "kind": "hop",
+          "offsetHz": 300.8199348543785,
+          "periodMs": 122,
+          "restHz": 18823.09841797463
+        }
+      ]
+    },
+    "wedge60": {
+      "observations": [
+        {
+          "at": "2026-11-20T18:38:35.068Z",
+          "device": null,
+          "frames": 29,
+          "kind": "frames",
+          "repeats": 28,
+          "restHz": 17924.885209835036,
+          "symbols": [
+            3,
+            -1,
+            3,
+            -2,
+            3,
+            -3
+          ]
+        },
+        {
+          "at": "2026-11-20T18:38:35.068Z",
+          "device": null,
+          "hz": 18823.224784790425,
+          "kind": "tone"
+        },
+        {
+          "at": "2026-11-20T18:38:35.068Z",
+          "device": null,
+          "hops": 130,
+          "kind": "hop",
+          "offsetHz": 504.62693036685596,
+          "periodMs": 61,
+          "restHz": 18928.850356285977
+        }
+      ]
+    },
+    "wedgeAW": {
+      "observations": [
+        {
+          "at": "2026-11-20T18:43:13.060Z",
+          "device": null,
+          "frames": 22,
+          "kind": "frames",
+          "repeats": 19,
+          "restHz": 18020.156989660823,
+          "symbols": [
+            -2,
+            2,
+            -4,
+            3,
+            4,
+            -3
+          ]
+        },
+        {
+          "at": "2026-11-20T18:43:13.060Z",
+          "device": null,
+          "hz": 18920.936051886765,
+          "kind": "tone"
+        },
+        {
+          "at": "2026-11-20T18:43:13.060Z",
+          "device": null,
+          "hops": 38,
+          "kind": "hop",
+          "offsetHz": 303.81678837903746,
+          "periodMs": 120,
+          "restHz": 19022.623202798364
+        }
+      ]
+    },
+    "wood9": {
+      "observations": [
+        {
+          "at": "2026-11-20T18:47:58.555Z",
+          "device": null,
+          "frames": 12,
+          "kind": "frames",
+          "repeats": 6,
+          "restHz": 17896.71081092587,
+          "symbols": [
+            -1,
+            2,
+            3,
+            2,
+            4,
+            -3
+          ]
+        },
+        {
+          "at": "2026-11-20T18:47:58.555Z",
+          "device": null,
+          "hz": 18782.95057963706,
+          "kind": "tone"
+        },
+        {
+          "at": "2026-11-20T18:47:58.555Z",
+          "device": null,
+          "hops": 13,
+          "kind": "hop",
+          "offsetHz": 200.73793954983194,
+          "periodMs": 61,
+          "restHz": 18894.804502627198
+        },
+        {
+          "at": "2026-11-20T21:58:37.294Z",
+          "device": null,
+          "frames": 10,
+          "kind": "frames",
+          "repeats": 5,
+          "restHz": 17902.296809133666,
+          "symbols": [
+            -1,
+            2,
+            3,
+            2,
+            4,
+            -3
+          ]
+        },
+        {
+          "at": "2026-11-20T21:58:37.294Z",
+          "device": null,
+          "hops": 40,
+          "kind": "hop",
+          "offsetHz": 208.95361748039068,
+          "periodMs": 60,
+          "restHz": 18900.096090645442
+        },
+        {
+          "at": "2026-11-20T21:58:56.296Z",
+          "device": null,
+          "frames": 26,
+          "kind": "frames",
+          "repeats": 18,
+          "restHz": 17904.31887726294,
+          "symbols": [
+            -1,
+            2,
+            3,
+            2,
+            4,
+            -3
+          ]
+        },
+        {
+          "at": "2026-11-20T21:58:56.296Z",
+          "device": null,
+          "hz": 18798.406850371735,
+          "kind": "tone"
+        },
+        {
+          "at": "2026-11-20T21:58:56.296Z",
+          "device": null,
+          "hops": 5,
+          "kind": "hop",
+          "offsetHz": 201.78034841252884,
+          "periodMs": 59.5,
+          "restHz": 18903.02863432424
+        }
+      ]
+    }
+  },
+  "revision": 0,
+  "version": 1
+}

@@ -1,0 +1,794 @@
+/* OSSTagLab. Tokens are shared with analysis.css: change them here only. */
+
+:root {
+  --paper: #E8ECEA;
+  --panel: #F6F8F7;
+  --ink: #15232B;
+  --ink-soft: #54656E;
+  --rule: #C5CEC9;
+  --scope: #0B1418;
+  --scope-ink: #C9D6D2;
+  --signal: #D98A00;
+  --fairway: #1F6F54;
+  --alert: #B3261E;
+  --font-ui: "Avenir Next", "Avenir", "Helvetica Neue", sans-serif;
+  --font-tight: "Avenir Next Condensed", "Avenir Next", "Helvetica Neue", sans-serif;
+  --radius: 3px;
+  --gap: 12px;
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  padding: 16px;
+  background: var(--paper);
+  color: var(--ink);
+  font: 14px/1.45 var(--font-ui);
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 18px;
+}
+
+h2 {
+  font-size: 15px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+/* Header strip */
+
+.strip {
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: var(--gap);
+}
+
+.strip-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--gap);
+}
+
+.strip-controls h1 {
+  margin-right: 8px;
+  align-self: center;
+}
+
+.input-report {
+  margin-top: 8px;
+}
+
+.input-report dl {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  gap: 2px 16px;
+  margin: 0;
+  font-size: 13px;
+}
+
+.input-report dt {
+  color: var(--ink-soft);
+}
+
+.input-report dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-tight);
+}
+
+.warning {
+  margin: 6px 0 0;
+  color: var(--alert);
+}
+
+.hint,
+.note {
+  margin: 6px 0 0;
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.status {
+  margin: 8px 0 0;
+  color: var(--alert);
+}
+
+/* Form primitives */
+
+.field,
+.check {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.check {
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  font-size: 13px;
+  color: var(--ink);
+}
+
+input,
+select {
+  height: 28px;
+  box-sizing: border-box;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--panel);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  padding: 0 6px;
+}
+
+input[type="number"] {
+  width: 84px;
+  font-family: var(--font-tight);
+  font-variant-numeric: tabular-nums;
+}
+
+input[type="text"] {
+  width: 220px;
+}
+
+input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  margin: 0;
+  accent-color: var(--ink);
+}
+
+select:disabled,
+button:disabled {
+  opacity: 0.5;
+}
+
+button {
+  height: 28px;
+  padding: 0 10px;
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--panel);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+button.primary {
+  background: var(--ink);
+  color: var(--panel);
+}
+
+button.primary.listening {
+  background: var(--signal);
+  color: var(--ink);
+}
+
+button.alert {
+  border-color: var(--alert);
+  color: var(--alert);
+}
+
+fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 8px 0 0;
+  border: 0;
+  border-top: 1px solid var(--rule);
+}
+
+legend {
+  padding: 0;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 8px 12px;
+  margin-bottom: 8px;
+}
+
+.note-input {
+  width: 240px;
+}
+
+/* Spectrogram */
+
+.scope-section {
+  margin-top: var(--gap);
+}
+
+.scope {
+  position: relative;
+  /* Short enough that the station above and the meters below share one screen with it. */
+  height: clamp(110px, calc(100vh - 665px), 340px);
+  background: var(--scope);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.scope canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.scope-empty {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  color: var(--scope-ink);
+}
+
+/* Meters */
+
+.meters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  margin-top: var(--gap);
+  align-items: baseline;
+}
+
+.meter {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.meter-label {
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.readout {
+  min-width: 10ch;
+  font-family: var(--font-tight);
+  font-size: 16px;
+  font-variant-numeric: tabular-nums;
+}
+
+.readout[data-state="armed"],
+.readout[data-state="capturing"] {
+  padding: 0 6px;
+  border-radius: var(--radius);
+  background: var(--signal);
+  color: var(--ink);
+}
+
+.clip {
+  color: var(--alert);
+  font-weight: 600;
+}
+
+/* Controls */
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 0 var(--gap);
+  margin-top: var(--gap);
+}
+
+/* Captures and analysis */
+
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--gap);
+  margin-top: var(--gap);
+  padding-top: var(--gap);
+  border-top: 1px solid var(--rule);
+}
+
+.captures-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.empty,
+.placeholder {
+  color: var(--ink-soft);
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+th {
+  padding: 4px 8px 4px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 12px;
+  font-weight: 500;
+  text-align: left;
+  color: var(--ink-soft);
+}
+
+td {
+  padding: 6px 8px 6px 0;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: middle;
+}
+
+tr {
+  cursor: pointer;
+}
+
+tr.selected td {
+  background: var(--panel);
+}
+
+tr.selected td:first-child {
+  border-left: 3px solid var(--ink);
+}
+
+.thumb {
+  display: block;
+  width: 160px;
+  height: 48px;
+  border-radius: var(--radius);
+}
+
+td button {
+  height: 24px;
+  margin: 0 4px 4px 0;
+  padding: 0 8px;
+  font-size: 12px;
+}
+
+.club-select {
+  width: 150px;
+}
+
+.ok {
+  color: var(--fairway);
+}
+
+.error {
+  display: block;
+  color: var(--alert);
+}
+
+.compare-bar {
+  margin-top: var(--gap);
+}
+
+.similarity {
+  margin-top: var(--gap);
+  padding-top: var(--gap);
+  border-top: 1px solid var(--rule);
+}
+
+
+/* Club mapping station: everything needed to map a club, on the first screen. */
+
+.input-details {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.input-details summary {
+  cursor: pointer;
+  width: max-content;
+}
+
+.mapping {
+  margin-top: var(--gap);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  height: 30px;
+  border-color: var(--rule);
+  border-radius: 15px;
+  color: var(--ink-soft);
+}
+
+.chip[data-mapped="true"] {
+  border-color: var(--fairway);
+  color: var(--fairway);
+}
+
+.chip[aria-pressed="true"] {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--panel);
+  font-weight: 600;
+}
+
+.chip-identify {
+  border-style: dashed;
+  color: var(--ink);
+}
+
+/* The main area (#bench): the reading and the spectrogram, and beside them the hits while identifying. */
+
+.chip-bar {
+  margin-top: var(--gap);
+}
+
+.bench {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--gap);
+}
+
+.bench[data-mode="identify"] {
+  grid-template-columns: minmax(0, 1fr) clamp(180px, 28%, 300px);
+}
+
+.bench-main {
+  min-width: 0;
+}
+
+/* As tall as the reading and spectrogram beside it, never taller: the log scrolls inside. */
+.hit-side {
+  position: relative;
+  margin-top: var(--gap);
+  border-left: 1px solid var(--rule);
+}
+
+.hit-side-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding-left: var(--gap);
+}
+
+.hit-side-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.hit-totals {
+  width: 100%;
+  margin-top: 8px;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.hit-totals th {
+  padding: 3px 0;
+  text-align: left;
+  font-weight: 400;
+}
+
+.hit-totals td {
+  padding: 3px 0;
+  text-align: right;
+  font-size: 18px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.hit-totals tr + tr {
+  border-top: 1px solid var(--rule);
+}
+
+.hit-log-head {
+  margin: 14px 0 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.hit-log {
+  flex: 1;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.hit-log li:first-child {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.map-evidence {
+  margin: 0 0 8px;
+  min-height: 1.45em;
+  color: var(--ink-soft);
+}
+
+.bench[data-mode="identify"] .map-verdict {
+  min-height: 38px;
+}
+
+.bench[data-mode="identify"] .map-verdict[data-state="known"] {
+  font-size: 30px;
+}
+
+/* Identifying shows less above the spectrogram, so it can be taller. */
+.bench[data-mode="identify"] .scope {
+  height: clamp(140px, calc(100vh - 505px), 380px);
+}
+
+@media (max-width: 560px) {
+  .bench[data-mode="identify"] {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hit-side {
+    border-left: 0;
+    border-top: 1px solid var(--rule);
+    min-height: 220px;
+  }
+
+  .hit-side-inner {
+    padding: var(--gap) 0 0;
+  }
+}
+
+.map-verdict {
+  margin: 10px 0 8px;
+  min-height: 2.5em;
+  font-size: 22px;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.map-verdict[data-state="idle"] {
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+
+.map-verdict[data-state="known"] {
+  color: var(--fairway);
+}
+
+.map-verdict[data-state="warn"],
+.map-verdict[data-state="clash"] {
+  color: var(--alert);
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1.3fr;
+  gap: 8px;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  padding: 8px 10px;
+  border: 1px solid var(--rule);
+  border-left-width: 4px;
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.tile[data-state="heard"] {
+  border-left-color: var(--signal);
+}
+
+.tile[data-state="saved"] {
+  border-left-color: var(--fairway);
+}
+
+.tile[data-state="clash"] {
+  border-left-color: var(--alert);
+}
+
+.tile-label {
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.tile-now {
+  font-family: var(--font-tight);
+  font-size: 20px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+  min-height: 1.2em;
+  overflow-wrap: anywhere;
+}
+
+.tile[data-state="empty"] .tile-now,
+.tile[data-state="saved"] .tile-now,
+.tile[data-state="weak"] .tile-now {
+  color: var(--ink-soft);
+}
+
+.tile-detail,
+.tile-saved {
+  font-size: 12px;
+  color: var(--ink-soft);
+  min-height: 1.45em;
+}
+
+.tile[data-state="clash"] .tile-detail {
+  color: var(--alert);
+}
+
+.sequence {
+  margin-top: 8px;
+}
+
+.sequence-bar {
+  position: relative;
+  height: 22px;
+  border-radius: var(--radius);
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  overflow: hidden;
+}
+
+.sequence-part {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  padding: 0 4px;
+  overflow: hidden;
+  font-size: 11px;
+  line-height: 20px;
+  white-space: nowrap;
+  color: var(--panel);
+}
+
+.sequence-part[data-kind="wake"] {
+  background: #2E8B2E;
+}
+
+.sequence-part[data-kind="resting"] {
+  background: #2F5FD0;
+}
+
+.sequence-part[data-kind="hit"] {
+  background: #FFE14A;
+  color: var(--ink);
+}
+
+.sequence-part[data-kind="tap"] {
+  width: 3px;
+  padding: 0;
+  background: #D61FA8;
+  z-index: 1;
+}
+
+.sequence-text {
+  margin: 3px 0 0;
+  min-height: 1.45em;
+  font-size: 12px;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.map-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin-top: 8px;
+}
+
+.map-actions button {
+  height: 34px;
+  padding: 0 14px;
+}
+
+.map-message {
+  margin: 6px 0 0;
+  min-height: 1.45em;
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+
+.map-message[data-kind="saved"] {
+  color: var(--fairway);
+  font-weight: 600;
+}
+
+.map-message[data-kind="error"] {
+  color: var(--alert);
+  font-weight: 600;
+}
+
+.mapping-saved {
+  margin-top: var(--gap);
+  padding-top: var(--gap);
+  border-top: 1px solid var(--rule);
+}
+
+.map-value,
+.map-symbols,
+.map-time {
+  font-family: var(--font-tight);
+  font-size: 16px;
+  font-variant-numeric: tabular-nums;
+}
+
+.map-symbols .warning,
+.map-symbols .error {
+  display: inline;
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 12px;
+}
+
+.map-unmapped td {
+  color: var(--ink-soft);
+}
+
+.map-subhead {
+  margin: var(--gap) 0 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.map-events {
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.map-decoded button {
+  margin-top: 8px;
+}
+
+.map-time {
+  display: inline-block;
+  min-width: 17ch;
+  font-size: 14px;
+  color: var(--ink-soft);
+}

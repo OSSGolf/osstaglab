@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OSSTagLab</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="analysis.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="strip">
+    <div class="strip-controls">
+      <h1>OSSTagLab</h1>
+      <label class="field">
+        <span>Microphone</span>
+        <select id="device">
+          <option value="">Default microphone</option>
+        </select>
+      </label>
+      <label class="field">
+        <span>Sample rate</span>
+        <select id="sampleRate">
+          <option value="48000">48000 Hz</option>
+          <option value="44100">44100 Hz</option>
+          <option value="96000">96000 Hz</option>
+        </select>
+      </label>
+      <button type="button" id="listenBtn" class="primary">Start listening</button>
+    </div>
+    <details id="inputDetails" class="input-details">
+      <summary>Microphone details</summary>
+      <div id="inputReport" class="input-report" aria-live="polite"></div>
+      <p class="hint">If the macOS menu bar shows a Mic Mode control while listening, set it to Standard.</p>
+    </details>
+    <p id="status" class="status" role="status" hidden></p>
+  </header>
+
+  <nav id="clubChips" class="chip-bar" aria-label="Identify tags, or choose the club to map"></nav>
+
+  <div id="bench" class="bench">
+  <div class="bench-main">
+  <section id="mapping" class="mapping" aria-label="Club mapping"></section>
+
+  <section class="scope-section" aria-label="Live spectrogram">
+    <div id="scope" class="scope">
+      <canvas id="spectrogram" role="img" aria-label="Live spectrogram of the microphone"></canvas>
+      <canvas id="overlay" aria-hidden="true"></canvas>
+      <p id="spectroEmpty" class="scope-empty">Start listening to see the microphone's spectrum</p>
+    </div>
+  </section>
+
+  <section class="meters" aria-label="Levels">
+    <div class="meter">
+      <span class="meter-label">Input peak</span>
+      <output id="peakOut" class="readout">&mdash;</output>
+      <span id="clipInd" class="clip" hidden>Clip</span>
+    </div>
+    <div class="meter">
+      <span class="meter-label">Band level</span>
+      <output id="bandOut" class="readout">&mdash;</output>
+    </div>
+    <div class="meter">
+      <span class="meter-label">Noise floor</span>
+      <output id="floorOut" class="readout">&mdash;</output>
+    </div>
+    <div class="meter">
+      <span class="meter-label">Trigger</span>
+      <output id="trigState" class="readout" data-state="idle">Idle</output>
+    </div>
+  </section>
+
+  </div>
+  <aside id="hitSide" class="hit-side" aria-label="Hits" hidden></aside>
+  </div>
+
+  <section id="mappingSaved" class="mapping-saved" aria-label="Saved clubs"></section>
+
+  <section class="controls" aria-label="Controls">
+    <fieldset>
+      <legend>Display</legend>
+      <div class="row">
+        <label class="field"><span>Low Hz</span><input id="dispLo" type="number" min="0" step="100" value="0"></label>
+        <label class="field"><span>High Hz</span><input id="dispHi" type="number" min="0" step="100" value="24000"></label>
+        <label class="field"><span>Floor dB</span><input id="dispFloor" type="number" step="1" value="-130"></label>
+        <label class="field"><span>Ceiling dB</span><input id="dispCeil" type="number" step="1" value="-40"></label>
+      </div>
+      <div class="row">
+        <button type="button" id="zoomBtn">Zoom to tag band</button>
+        <button type="button" id="fullBtn">Full range</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Trigger</legend>
+      <div class="row">
+        <label class="field"><span>Band low Hz</span><input id="trigLo" type="number" min="0" step="100" value="15000"></label>
+        <label class="field"><span>Band high Hz</span><input id="trigHi" type="number" min="0" step="100" value="22000"></label>
+        <label class="field"><span>Threshold dB above floor</span><input id="trigThresh" type="number" step="1" value="12"></label>
+      </div>
+      <div class="row">
+        <label class="field"><span>Pre-roll ms</span><input id="preRoll" type="number" min="0" step="50" value="500"></label>
+        <label class="field"><span>Post-roll ms</span><input id="postRoll" type="number" min="0" step="50" value="1500"></label>
+        <label class="check"><input id="armed" type="checkbox" checked> Armed</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Club being tapped</legend>
+      <div class="row">
+        <label class="field">
+          <span>Club</span>
+          <select id="club"></select>
+        </label>
+        <label class="field">
+          <span>Note</span>
+          <input id="note" type="text" class="note-input" autocomplete="off">
+        </label>
+      </div>
+      <div class="row">
+        <label class="check"><input id="autoSave" type="checkbox" checked> Save captures to disk automatically</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Capture</legend>
+      <div class="row">
+        <button type="button" id="captureBtn">Capture last 3 seconds</button>
+        <button type="button" id="captureLongBtn">Capture last 20 seconds</button>
+        <button type="button" id="loadWavBtn">Load WAV file&hellip;</button>
+        <input id="wavFile" type="file" accept=".wav,audio/wav" hidden>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Test signals</legend>
+      <div class="row">
+        <button type="button" id="sweepBtn">Play sweep 14&ndash;23 kHz</button>
+        <button type="button" id="fskBtn">Play FSK burst</button>
+        <button type="button" id="synthTagBtn">Play synthetic tag</button>
+      </div>
+      <p class="note">Plays quietly through the speakers. If the sweep shows as a clean diagonal line all the way up, the microphone chain passes the tag band. The synthetic tag sends a made-up frame, tone and hop pattern, so Club mapping should read +2 &minus;3 +1 &minus;4 +3 &minus;2.</p>
+    </fieldset>
+  </section>
+
+  <div class="split">
+    <section class="captures" aria-labelledby="capHead">
+      <div class="captures-head">
+        <h2 id="capHead">Captures</h2>
+        <label class="field">
+          <span>Slowed playback</span>
+          <select id="slowSpeed">
+            <option value="0.25">&frac14; speed</option>
+            <option value="0.125" selected>&#8539; speed</option>
+            <option value="0.0625">1&frasl;16 speed</option>
+          </select>
+        </label>
+      </div>
+      <p id="capEmpty" class="empty" hidden>Tap a tag near the microphone while armed, or capture the last 3 seconds.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Spectrum</th>
+              <th scope="col">Time</th>
+              <th scope="col">Club</th>
+              <th scope="col">Source</th>
+              <th scope="col">Peak over floor</th>
+              <th scope="col">Length</th>
+              <th scope="col">Saved</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="capRows"></tbody>
+        </table>
+      </div>
+    </section>
+    <section id="analysis" class="analysis" aria-label="Capture analysis"></section>
+  </div>
+
+  <div class="compare-bar">
+    <button type="button" id="compareBtn">Compare captures</button>
+  </div>
+  <section id="similarity" class="similarity" aria-label="Capture comparison"></section>
+</body>
+</html>
