@@ -6,7 +6,7 @@
 
 A web app that listens to golf club tags, decodes the high frequency tones they send, and names the club.
 
-Part of [OSSGolf](https://ossgolf.com), open source golf projects. The findings are on the blog: [OSSTagLab: decoding the sound of golf club tags](https://ossgolf.com/posts/osstaglab/).
+Part of [OSSGolf](https://ossgolf.com), open source golf projects. The findings are on the blog: [OSSTagLab: Decoding the Sound of Golf Club Tags](https://ossgolf.com/posts/osstaglab/).
 
 <p align="center">
   <img src="docs/media/app.png" width="760" alt="The OSSTagLab web app: club chips across the top, a live spectrogram, a hits panel, and a table of saved clubs with each club's resting frame, rest tone, wake tone and hop pattern">
