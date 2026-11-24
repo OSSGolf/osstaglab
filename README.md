@@ -164,7 +164,7 @@ test/                  tests and recordings
 
 ## Notes
 
-OSSTagLab is an independent project by OSSGolf, built by listening to our own set of tags. The codes in `codebook.example.json` were measured on that one set. Map your own set to get its codes.
+OSSTagLab is an independent project by OSSGolf, built by listening to our own set of Arccos Gen 4 tags. The codes in `codebook.example.json` were measured on that one set. Map your own set to get its codes.
 
 Issues and pull requests are welcome.
 
